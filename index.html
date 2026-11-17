@@ -1,0 +1,55 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#2f4a32"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="Deer Camp">
+<link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icon-180.png"><link rel="icon" href="icon-192.png">
+<title>Kalkaska Deer Camp</title><meta name="description" content="Deer camp planner: gear checklist, shopping list, hunt log. Works offline; data stays on your phone.">
+<style>
+:root{color-scheme:light;--bg:#f3f1ea;--card:#fff;--dark:#26301f;--muted:#5e6857;--line:#dedbd0;--lt:#e9eee3;--acc:#3d6b42;--head:#2f4a32;--blaze:#d9601f;--ok:#3d6b42;--bad:#a83d3d;--nav:#fff}
+html[data-theme="dark"]{color-scheme:dark;--bg:#151a14;--card:#1f261d;--dark:#e6ebdf;--muted:#adb8a5;--line:#36412f;--lt:#2a3527;--acc:#8cc08f;--head:#1d2b1e;--blaze:#f08a4b;--ok:#8cc08f;--bad:#e07a7a;--nav:#192017}
+@media(prefers-color-scheme:dark){html:not([data-theme="light"]){color-scheme:dark;--bg:#151a14;--card:#1f261d;--dark:#e6ebdf;--muted:#adb8a5;--line:#36412f;--lt:#2a3527;--acc:#8cc08f;--head:#1d2b1e;--blaze:#f08a4b;--ok:#8cc08f;--bad:#e07a7a;--nav:#192017}}
+*{box-sizing:border-box}html,body{margin:0;overflow-x:clip;max-width:100%;-webkit-text-size-adjust:100%}
+body{font:17px/1.5 -apple-system,system-ui,Roboto,sans-serif;background:var(--bg);color:var(--dark);padding-bottom:calc(92px + env(safe-area-inset-bottom))}
+header{position:sticky;top:0;background:var(--head);color:#fff;padding:calc(10px + env(safe-area-inset-top)) 18px 10px;display:flex;justify-content:space-between;align-items:center;z-index:5;min-height:60px;border-bottom:4px solid var(--blaze)}
+header h1{font-size:19px;margin:0;letter-spacing:.2px}header small{font-size:12px;opacity:.85}
+main{padding:16px;max-width:720px;margin:auto}h2{font-size:25px;line-height:1.2;margin:14px 0 10px}h3{font-size:18px;margin:22px 0 8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:12px 0;overflow-wrap:anywhere}
+button{font:inherit;min-height:46px;padding:10px 14px;border-radius:10px;border:0;background:var(--acc);color:#fff;cursor:pointer;-webkit-tap-highlight-color:transparent}
+html[data-theme="dark"] button:not(.sec):not(.chk):not(.edit):not(nav button){color:#10200f}@media(prefers-color-scheme:dark){html:not([data-theme="light"]) button:not(.sec):not(.chk):not(.edit):not(nav button){color:#10200f}}
+button.sec{background:var(--lt);color:var(--dark)}button.bad{background:var(--bad);color:#fff!important}button.sm{min-height:40px;padding:6px 12px;font-size:15px}.wide{width:100%;margin-top:10px}
+button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid var(--blaze);outline-offset:2px}
+input,select,textarea{font:inherit;font-size:17px;width:100%;min-height:46px;padding:10px;border:1px solid var(--line);border-radius:9px;background:var(--card);color:var(--dark);margin:4px 0 12px}textarea{min-height:120px}
+label{display:block;font-size:14px;font-weight:600;margin-top:8px}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.row>*{flex:1;min-width:0}.between{display:flex;justify-content:space-between;align-items:center;gap:12px}.between>*{min-width:0}
+.muted{color:var(--muted);font-size:14px}.eyebrow{font-size:12px;letter-spacing:1.5px;font-weight:700;color:var(--blaze);text-transform:uppercase;margin:22px 0 6px}
+.hero{background:var(--head);color:#fff;border:0}.hero p{margin:6px 0 0;opacity:.9}
+.kpis{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}.kpis>div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px}.kpis span{display:block;font-size:13px;color:var(--muted)}.kpis b{font-size:23px;white-space:nowrap}
+.props div{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--line)}.props div:last-child{border:0}.props span{color:var(--muted)}.props b{text-align:right}
+.bar{height:10px;border-radius:5px;background:var(--lt);overflow:hidden;margin:8px 0}.bar i{display:block;height:100%;background:var(--blaze);border-radius:5px}
+.item{display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}.item:last-child{border:0}.item .txt{flex:1;min-width:0}.item .txt b{display:block;font-weight:600}
+.chk{flex:0 0 46px;width:46px;height:46px;min-height:46px;padding:0;border-radius:12px;background:var(--lt);border:2px solid var(--line);color:transparent;font-size:24px;font-weight:800}
+.chk.on{background:var(--acc);border-color:var(--acc);color:#fff}.done .txt b{text-decoration:line-through;color:var(--muted)}
+.edit{flex:0 0 auto;background:none;color:var(--muted);min-height:46px;padding:6px 8px;font-size:15px}
+details{background:var(--card);border:1px solid var(--line);border-radius:14px;margin:12px 0;overflow:hidden}summary{list-style:none;padding:14px 16px;font-weight:700;display:flex;justify-content:space-between;gap:10px;cursor:pointer;min-height:50px;align-items:center}summary::-webkit-details-marker{display:none}summary::after{content:'▸';color:var(--muted)}details[open] summary::after{content:'▾'}details .inner{padding:0 16px 8px}
+.buy{padding:14px 0;border-bottom:1px solid var(--line)}.buy:last-child{border:0}.buy .name{font-weight:600}.price{font-size:20px;font-weight:700;white-space:nowrap;flex-shrink:0!important}
+.toggles{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}.toggles button{flex:1 1 120px;min-height:44px;font-size:15px}.toggles .on{background:var(--acc)}.toggles .off{background:var(--lt);color:var(--dark)!important}
+a{color:var(--acc);font-weight:600}.store{display:inline-block;min-height:44px;padding:10px 0}
+.totals{position:sticky;top:calc(64px + env(safe-area-inset-top));z-index:4;background:var(--bg);padding:4px 0}
+.totals .kpis{grid-template-columns:1fr 1fr 1fr;margin:6px 0}.totals .kpis b{font-size:18px}
+.chips{display:flex;gap:8px;margin:8px 0}.chips button{flex:1;min-height:42px;font-size:15px}
+.log-entry h4{margin:0 0 4px;font-size:18px}.log-entry p{margin:8px 0;white-space:pre-wrap}
+.tag{display:inline-block;padding:2px 9px;border-radius:99px;font-size:12px;background:var(--lt);color:var(--dark);margin-right:6px}
+nav{position:fixed;bottom:0;left:0;right:0;display:flex;background:var(--nav);border-top:1px solid var(--line);padding:6px 6px calc(6px + env(safe-area-inset-bottom));z-index:5}
+nav button{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;background:none;color:var(--muted);border-radius:10px;min-height:60px;font-size:12px;padding:6px 2px;border-top:3px solid transparent}
+nav button.on{color:var(--acc);background:var(--lt);font-weight:700;border-top-color:var(--blaze)}nav svg{width:24px;height:24px}
+#modal{position:fixed;inset:0;background:#0009;display:none;align-items:flex-end;justify-content:center;z-index:10}#modal.open{display:flex}#modal>div{background:var(--bg);width:100%;max-width:720px;max-height:92vh;overflow-y:auto;border-radius:18px 18px 0 0;padding:20px 18px calc(24px + env(safe-area-inset-bottom))}
+#update-banner{position:sticky;top:calc(64px + env(safe-area-inset-top));z-index:9;background:var(--head);padding:8px 14px}#update-banner button{display:block;width:100%;background:#fff;color:#2f4a32;font-weight:700}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(96px + env(safe-area-inset-bottom));background:#222;color:#fff;padding:10px 16px;border-radius:99px;font-size:15px;z-index:20}
+</style></head><body>
+<header><div><h1>Kalkaska Deer Camp</h1><small id="sub">Brandon · Beans · Shehan</small></div></header>
+<div id="update-banner" role="status" aria-live="polite" hidden></div>
+<main id="app"></main>
+<nav id="nav" aria-label="Main navigation"></nav>
+<div id="modal" role="dialog" aria-modal="true"><div id="mbody"></div></div>
+<script src="data.js?v=1.0"></script><script src="updates.js?v=1.0"></script><script src="app.js?v=1.0"></script>
+</body></html>
