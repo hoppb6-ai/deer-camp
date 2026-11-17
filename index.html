@@ -45,11 +45,16 @@ nav button.on{color:var(--acc);background:var(--lt);font-weight:700;border-top-c
 #modal{position:fixed;inset:0;background:#0009;display:none;align-items:flex-end;justify-content:center;z-index:10}#modal.open{display:flex}#modal>div{background:var(--bg);width:100%;max-width:720px;max-height:92vh;overflow-y:auto;border-radius:18px 18px 0 0;padding:20px 18px calc(24px + env(safe-area-inset-bottom))}
 #update-banner{position:sticky;top:calc(64px + env(safe-area-inset-top));z-index:9;background:var(--head);padding:8px 14px}#update-banner button{display:block;width:100%;background:#fff;color:#2f4a32;font-weight:700}
 .toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(96px + env(safe-area-inset-bottom));background:#222;color:#fff;padding:10px 16px;border-radius:99px;font-size:15px;z-index:20}
+
+.shot{margin:14px 0}.shot img,.cover img{width:100%;height:auto;display:block;border-radius:12px;background:var(--lt);aspect-ratio:auto}
+.cover{margin:0 0 10px}.cover img{max-height:180px;object-fit:cover;object-position:center}
+.shot .cap{margin:8px 0 4px}.src{display:inline-block;min-height:44px;padding:8px 0}
+nav button{font-size:11px;padding:6px 0}
 </style></head><body>
 <header><div><h1>Kalkaska Deer Camp</h1><small id="sub">Brandon · Beans · Shehan</small></div></header>
 <div id="update-banner" role="status" aria-live="polite" hidden></div>
 <main id="app"></main>
 <nav id="nav" aria-label="Main navigation"></nav>
 <div id="modal" role="dialog" aria-modal="true"><div id="mbody"></div></div>
-<script src="data.js?v=1.0"></script><script src="updates.js?v=1.0"></script><script src="app.js?v=1.0"></script>
+<script src="data.js?v=1.1"></script><script src="updates.js?v=1.1"></script><script src="photos.js?v=1.1"></script><script src="app.js?v=1.1"></script>
 </body></html>

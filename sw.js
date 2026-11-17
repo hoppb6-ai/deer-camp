@@ -1,6 +1,6 @@
 'use strict';
-const C='dc-v1',VERSION='1.0';
-const F=['./','index.html','app.js','data.js','updates.js','manifest.webmanifest','icon-180.png','icon-192.png','icon-512.png'];
+const C='dc-v2',VERSION='1.1';
+const F=['./','index.html','app.js','data.js','photos.js','updates.js','manifest.webmanifest','icon-180.png','icon-192.png','icon-512.png','img/alpine-cs14.webp','img/camp-chef-pro14.webp','img/camp-chef-rv-hose.webp','img/clam-escape.webp','img/cot-outfitter-xxl.webp','img/davis-summit-ridge.webp','img/gci-freestyle-rocker.webp','img/kodiak-10x10.webp','img/kodiak-12x16-1672-both.webp','img/kodiak-12x16-field.webp','img/kodiak-12x16-side.webp','img/kodiak-12x16-studio.webp','img/kodiak-12x16-with-1672.webp','img/kodiak-1672-room.webp','img/kodiak-bundle.webp','img/porta-potti-135.webp','img/sand-point-pump.webp','img/spruce-4023-kit.webp','img/spruce-4023.webp','img/stove-mat-1577.webp','img/stove-pipe-5in.webp','img/timberline-4046.webp','img/unique-ugp3-fridge.webp'];
 self.addEventListener('install',e=>{e.waitUntil((async()=>{const c=await caches.open(C);await Promise.all(F.map(async path=>{const response=await fetch(new Request(path,{cache:'reload'}));if(!response.ok)throw Error('Precache failed: '+path);await c.put(path,response)}));await self.skipWaiting()})())});
 self.addEventListener('activate',e=>{e.waitUntil((async()=>{await Promise.all((await caches.keys()).filter(k=>k.startsWith('dc-')&&k!==C).map(k=>caches.delete(k)));await self.clients.claim();for(const client of await self.clients.matchAll({type:'window'}))client.postMessage({type:'APP_UPDATED',version:VERSION})})())});
 self.addEventListener('message',e=>{if(e.data?.type==='SKIP_WAITING')self.skipWaiting()});
